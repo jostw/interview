@@ -1,9 +1,6 @@
 import { combineReducers } from 'redux';
+import hero from './heroReducer';
 
-function root(state = {}, action) {
-  return state;
-}
-
-const rootReducer = combineReducers({ root });
+const rootReducer = combineReducers({ hero });
 
 export default rootReducer;

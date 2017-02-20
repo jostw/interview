@@ -18,7 +18,7 @@ class App extends Component {
 }
 
 function mapStateToProps(state) {
-  return { root: state.root };
+  return { hero: state.hero };
 }
 
 function mapDispatchToProps(dispatch) {
