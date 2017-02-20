@@ -1,7 +1,14 @@
 .hero-card {
+  display: block;
   padding: 1em;
 
-  background-color: #EEE;
+  background-color: #F5F5F5;
+
+  transition: background-color .5s;
+}
+
+.hero-card-selected {
+  background-color: #BBDEFB;
 }
 
 .hero-card-image {
