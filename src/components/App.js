@@ -6,6 +6,10 @@ import * as actions from '../actions';
 import './App.css';
 
 class App extends Component {
+  componentDidMount() {
+    this.props.actions.fetchHeroes();
+  }
+
   render() {
     return (
       <div className="App">Hahow Recruit App</div>
