@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import * as actions from '../actions';
-import './App.css';
+import HeroList from '../components/HeroList';
 
 class App extends Component {
   componentDidMount() {
@@ -11,8 +11,12 @@ class App extends Component {
   }
 
   render() {
+    const { hero } = this.props;
+
     return (
-      <div className="App">Hahow Recruit App</div>
+      <div className="container">
+        <HeroList heroes={ hero.list } />
+      </div>
     );
   }
 }

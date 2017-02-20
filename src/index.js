@@ -7,7 +7,7 @@ import './index.css';
 
 import configureStore from './store/configureStore';
 import rootSaga from './sagas';
-import App from './components/App';
+import App from './containers/App';
 
 const store = configureStore();
 store.runSaga(rootSaga);

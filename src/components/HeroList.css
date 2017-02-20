@@ -1,0 +1,13 @@
+.hero-list {
+  display: flex;
+  flex-wrap: wrap;
+
+  margin: 0 -.5em 0 0;
+  padding: 1em 0 .5em;
+}
+
+.hero-list-item {
+  margin: 0 .5em .5em 0;
+
+  list-style: none;
+}
