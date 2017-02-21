@@ -19,6 +19,7 @@ class App extends Component {
 
     this.increaseHeroStats = this.increaseHeroStats.bind(this);
     this.decreaseHeroStats = this.decreaseHeroStats.bind(this);
+    this.updateHeroProfile = this.updateHeroProfile.bind(this);
   }
 
   componentWillMount() {
@@ -40,14 +41,16 @@ class App extends Component {
   }
 
   render() {
-    const { hero } = this.props;
+    const { params, hero } = this.props;
     let profile = null;
 
     if (hero.list.length > 0 && this.props.children) {
       profile = React.cloneElement(this.props.children, {
+        id: params.heroId,
         ...hero.profile,
         increaseHeroStats: this.increaseHeroStats,
-        decreaseHeroStats: this.decreaseHeroStats
+        decreaseHeroStats: this.decreaseHeroStats,
+        updateHeroProfile: this.updateHeroProfile
       });
     }
 
@@ -70,6 +73,13 @@ class App extends Component {
     return e => {
       e.preventDefault();
       this.props.actions.decreaseHeroStats(label);
+    };
+  }
+
+  updateHeroProfile(id, profile) {
+    return e => {
+      e.preventDefault();
+      this.props.actions.updateHeroProfile(id, profile);
     };
   }
 }

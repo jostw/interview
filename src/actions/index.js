@@ -19,3 +19,9 @@ export const DECREASE_HERO_STATS = 'DECREASE_HERO_STATS';
 
 export const increaseHeroStats = label => ({ type: INCREASE_HERO_STATS, label });
 export const decreaseHeroStats = label => ({ type: DECREASE_HERO_STATS, label });
+
+export const UPDATE_HERO_PROFILE = 'UPDATE_HERO_PROFILE';
+export const PATCH_HERO_PROFILE = 'PATCH_HERO_PROFILE';
+
+export const updateHeroProfile = (heroId, profile) => ({ type: UPDATE_HERO_PROFILE, heroId, profile });
+export const patchHeroProfile = () => ({ type: PATCH_HERO_PROFILE });

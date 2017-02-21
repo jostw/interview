@@ -5,21 +5,24 @@ import HeroStats from './HeroStats';
 
 class HeroProfile extends Component {
   static propTypes = {
+    id: PropTypes.string,
     str: PropTypes.number,
     int: PropTypes.number,
     agi: PropTypes.number,
     luk: PropTypes.number,
     remainder: PropTypes.number,
     increaseHeroStats: PropTypes.func,
-    decreaseHeroStats: PropTypes.func
+    decreaseHeroStats: PropTypes.func,
+    updateHeroProfile: PropTypes.func
   }
 
   render() {
-    const { str, int, agi, luk, remainder,
-            increaseHeroStats, decreaseHeroStats } = this.props;
+    const { id, str, int, agi, luk, remainder,
+            increaseHeroStats, decreaseHeroStats, updateHeroProfile } = this.props;
 
     return (
-      <form className="hero-profile">
+      <form className="hero-profile"
+            onSubmit={ updateHeroProfile(id, { str, int, agi, luk }) }>
         <ul className="hero-profile-list">
           <li className="hero-profile-stats">
             <HeroStats label="str" value={ str }

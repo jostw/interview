@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 
 import HeroProfile from './HeroProfile';
 
@@ -11,10 +11,11 @@ it('renders without crashing', () => {
     luk: Math.floor(Math.random() * 100),
     remainder: Math.floor(Math.random() * 100),
     increaseHeroStats: jest.fn(),
-    decreaseHeroStats: jest.fn()
+    decreaseHeroStats: jest.fn(),
+    updateHeroProfile: jest.fn()
   };
 
-  const wrapper = shallow(
+  const wrapper = mount(
     <HeroProfile { ...profile } />
   );
 
@@ -24,4 +25,6 @@ it('renders without crashing', () => {
   expect(wrapper.find('.hero-profile-remainder').length).toBe(1);
   expect(wrapper.find('.hero-profile-remainder').text()).toBe(`剩餘點數：${profile.remainder}`);
   expect(wrapper.find('.hero-profile-save').length).toBe(1);
+  wrapper.find('.hero-profile-save').simulate('click');
+  expect(wrapper.props().updateHeroProfile.mock.calls.length).toBe(1);
 });
