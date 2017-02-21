@@ -1,11 +1,26 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import * as actions from '../actions';
 import HeroList from '../components/HeroList';
+import HeroProfile from '../components/HeroProfile';
 
 class App extends Component {
+  static propTypes = {
+    hero: PropTypes.shape({
+      list: HeroList.propTypes.heroes.isRequired,
+      profile: PropTypes.shape(HeroProfile.propTypes).isRequired
+    }).isRequired
+  }
+
+  constructor(props) {
+    super(props);
+
+    this.increaseHeroStats = this.increaseHeroStats.bind(this);
+    this.decreaseHeroStats = this.decreaseHeroStats.bind(this);
+  }
+
   componentWillMount() {
     const { params, actions } = this.props;
 
@@ -29,7 +44,11 @@ class App extends Component {
     let profile = null;
 
     if (hero.list.length > 0 && this.props.children) {
-      profile = React.cloneElement(this.props.children, hero.profile);
+      profile = React.cloneElement(this.props.children, {
+        ...hero.profile,
+        increaseHeroStats: this.increaseHeroStats,
+        decreaseHeroStats: this.decreaseHeroStats
+      });
     }
 
     return (
@@ -38,6 +57,20 @@ class App extends Component {
         { profile }
       </div>
     );
+  }
+
+  increaseHeroStats(label) {
+    return e => {
+      e.preventDefault();
+      this.props.actions.increaseHeroStats(label);
+    };
+  }
+
+  decreaseHeroStats(label) {
+    return e => {
+      e.preventDefault();
+      this.props.actions.decreaseHeroStats(label);
+    };
   }
 }
 

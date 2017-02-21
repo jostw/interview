@@ -13,3 +13,9 @@ export const RECEIVE_HERO_PROFILE = 'RECEIVE_HERO_PROFILE';
 export const fetchHeroProfile = heroId => ({ type: FETCH_HERO_PROFILE, heroId });
 export const requestHeroProfile = () => ({ type: REQUEST_HERO_PROFILE });
 export const receiveHeroProfile = profile => ({ type: RECEIVE_HERO_PROFILE, profile });
+
+export const INCREASE_HERO_STATS = 'INCREASE_HERO_STATS';
+export const DECREASE_HERO_STATS = 'DECREASE_HERO_STATS';
+
+export const increaseHeroStats = label => ({ type: INCREASE_HERO_STATS, label });
+export const decreaseHeroStats = label => ({ type: DECREASE_HERO_STATS, label });

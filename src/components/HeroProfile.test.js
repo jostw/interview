@@ -9,7 +9,9 @@ it('renders without crashing', () => {
     int: Math.floor(Math.random() * 100),
     agi: Math.floor(Math.random() * 100),
     luk: Math.floor(Math.random() * 100),
-    remainder: Math.floor(Math.random() * 100)
+    remainder: Math.floor(Math.random() * 100),
+    increaseHeroStats: jest.fn(),
+    decreaseHeroStats: jest.fn()
   };
 
   const wrapper = shallow(

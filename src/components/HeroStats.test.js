@@ -6,7 +6,9 @@ import HeroStats from './HeroStats';
 it('renders without crashing', () => {
   const stats = {
     label: 'test',
-    value: Math.floor(Math.random() * 100)
+    value: Math.floor(Math.random() * 100),
+    increaseHeroStats: jest.fn(),
+    decreaseHeroStats: jest.fn()
   };
 
   const wrapper = mount(
@@ -18,6 +20,12 @@ it('renders without crashing', () => {
   expect(wrapper.find('.hero-stats-label').text()).toBe(stats.label.toUpperCase());
   expect(wrapper.find('.hero-stats-input').length).toBe(1);
   expect(wrapper.find('.hero-stats-input').getNode().value).toBe(`${stats.value}`);
+
   expect(wrapper.find('.hero-stats-increase').length).toBe(1);
+  wrapper.find('.hero-stats-increase').simulate('click');
+  expect(wrapper.props().increaseHeroStats.mock.calls.length).toBe(1);
+
   expect(wrapper.find('.hero-stats-decrease').length).toBe(1);
+  wrapper.find('.hero-stats-decrease').simulate('click');
+  expect(wrapper.props().decreaseHeroStats.mock.calls.length).toBe(1);
 });

@@ -9,26 +9,37 @@ class HeroProfile extends Component {
     int: PropTypes.number,
     agi: PropTypes.number,
     luk: PropTypes.number,
-    remainder: PropTypes.number
+    remainder: PropTypes.number,
+    increaseHeroStats: PropTypes.func,
+    decreaseHeroStats: PropTypes.func
   }
 
   render() {
-    const { str, int, agi, luk, remainder } = this.props;
+    const { str, int, agi, luk, remainder,
+            increaseHeroStats, decreaseHeroStats } = this.props;
 
     return (
       <form className="hero-profile">
         <ul className="hero-profile-list">
           <li className="hero-profile-stats">
-            <HeroStats label="str" value={ str } />
+            <HeroStats label="str" value={ str }
+                       increaseHeroStats={ increaseHeroStats }
+                       decreaseHeroStats={ decreaseHeroStats } />
           </li>
           <li className="hero-profile-stats">
-            <HeroStats label="int" value={ int } />
+            <HeroStats label="int" value={ int }
+                       increaseHeroStats={ increaseHeroStats }
+                       decreaseHeroStats={ decreaseHeroStats } />
           </li>
           <li className="hero-profile-stats">
-            <HeroStats label="agi" value={ agi } />
+            <HeroStats label="agi" value={ agi }
+                       increaseHeroStats={ increaseHeroStats }
+                       decreaseHeroStats={ decreaseHeroStats } />
           </li>
           <li className="hero-profile-stats">
-            <HeroStats label="luk" value={ luk } />
+            <HeroStats label="luk" value={ luk }
+                       increaseHeroStats={ increaseHeroStats }
+                       decreaseHeroStats={ decreaseHeroStats } />
           </li>
         </ul>
         <div className="hero-profile-panel">
