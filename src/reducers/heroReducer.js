@@ -16,15 +16,17 @@ function profile(state = {
   int: null,
   agi: null,
   luk: null,
-  remainder: 0
+  remainder: 0,
+  hasChanged: false
 }, action) {
   switch (action.type) {
     case RECEIVE_HERO_PROFILE:
       return {
         ...state,
         ...action.profile,
-        // Reset remainder stats after new hero profile is loaded
-        remainder: 0
+        // Reset remainder and hasChanged stats after new hero profile is loaded.
+        remainder: 0,
+        hasChanged: false
       };
     case INCREASE_HERO_STATS:
       if (state.remainder === 0) {
@@ -48,7 +50,9 @@ function profile(state = {
       return {
         ...state,
         [action.label]: targetStats - 1,
-        remainder: state.remainder + 1
+        remainder: state.remainder + 1,
+        // Mark stats as changed.
+        hasChanged: true
       };
     default:
       return state;

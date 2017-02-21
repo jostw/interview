@@ -9,7 +9,7 @@ function fetchApi(api, data = {}) {
   const fetchPromise = fetch(API_DOMAIN + api, data);
 
   if (data.method === 'PATCH') {
-    // Response for `PATCH` is not in json format, return promise directly
+    // Response for `PATCH` is not in json format, return promise directly.
     return fetchPromise;
   }
 

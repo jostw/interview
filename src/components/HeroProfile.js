@@ -11,14 +11,25 @@ class HeroProfile extends Component {
     agi: PropTypes.number,
     luk: PropTypes.number,
     remainder: PropTypes.number,
+    hasChanged: PropTypes.bool,
     increaseHeroStats: PropTypes.func,
     decreaseHeroStats: PropTypes.func,
     updateHeroProfile: PropTypes.func
   }
 
   render() {
-    const { id, str, int, agi, luk, remainder,
+    const { id, str, int, agi, luk, remainder, hasChanged,
             increaseHeroStats, decreaseHeroStats, updateHeroProfile } = this.props;
+
+    const isHeroProfileSaveDisabled = !hasChanged || remainder > 0;
+    let heroProfileSaveClassList = ['hero-profile-save'];
+
+    if (isHeroProfileSaveDisabled) {
+      heroProfileSaveClassList = [
+        ...heroProfileSaveClassList,
+        'hero-profile-save-disabled'
+      ];
+    }
 
     return (
       <form className="hero-profile"
@@ -47,7 +58,8 @@ class HeroProfile extends Component {
         </ul>
         <div className="hero-profile-panel">
           <span className="hero-profile-remainder">{ `剩餘點數：${remainder}` }</span>
-          <button className="hero-profile-save">儲存</button>
+          <button className={ heroProfileSaveClassList.join(' ') }
+                  disabled={ isHeroProfileSaveDisabled }>儲存</button>
         </div>
       </form>
     );

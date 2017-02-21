@@ -18,6 +18,22 @@ it('renders without crashing', () => {
   expect(wrapper.find('.hero-profile-save').length).toBe(1);
 });
 
+it('disabled saving button when changes have not made or remainder stats is not zero', () => {
+  const profile = createMockProfile();
+
+  const wrapper = shallow(
+    <HeroProfile { ...profile } />
+  );
+
+  expect(wrapper.find('.hero-profile-save-disabled').length).toBe(1);
+
+  wrapper.setProps({ remainder: 0, hasChanged: true });
+  expect(wrapper.find('.hero-profile-save-disabled').length).toBe(0);
+
+  wrapper.setProps({ remainder: 1 });
+  expect(wrapper.find('.hero-profile-save-disabled').length).toBe(1);
+});
+
 it('update hero profile on saving', () => {
   const profile = createMockProfile();
 
@@ -36,6 +52,7 @@ function createMockProfile() {
     agi: Math.floor(Math.random() * 100),
     luk: Math.floor(Math.random() * 100),
     remainder: Math.floor(Math.random() * 100),
+    hasChanged: false,
     increaseHeroStats: jest.fn(),
     decreaseHeroStats: jest.fn(),
     updateHeroProfile: jest.fn()
