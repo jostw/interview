@@ -2,17 +2,34 @@
   display: block;
   padding: 1em;
 
-  background-color: #F5F5F5;
-
   transition: background-color .5s;
 }
 
-.hero-card-selected {
-  background-color: #BBDEFB;
+.hero-card:hover {
+  background-color: #EEE;
+}
+
+.hero-card:hover .hero-card-image > img {
+  transform: scale(1.25);
+}
+
+.hero-card-selected,
+.hero-card-selected:hover {
+  background-color: #E1F5FE;
 }
 
 .hero-card-image {
+  min-width: 200px;
+  min-height: 200px;
+  overflow: hidden;
+
+  background-color: #F5F5F5;
+}
+
+.hero-card-image > img {
   display: block;
+
+  transition: transform .2s;
 }
 
 .hero-card-name {
@@ -25,5 +42,5 @@
   text-align: center;
 
   color: #FFF;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,.5);
 }

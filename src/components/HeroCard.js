@@ -18,7 +18,9 @@ class HeroCard extends Component {
             activeClassName="hero-card-selected"
             to={ `/heroes/${id}` }
             title={ name }>
-        <img className="hero-card-image" src={ image } alt={ name } title={ name } />
+        <div className="hero-card-image">
+          <img src={ image } alt={ name } title={ name } />
+        </div>
         <span className="hero-card-name">{ name }</span>
       </Link>
     );

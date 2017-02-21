@@ -1,0 +1,57 @@
+.hero-stats {
+  display: flex;
+}
+
+.hero-stats-label {
+  width: 2.5em;
+  margin-inline-end: 1em;
+
+  font-weight: 800;
+  text-align: end;
+}
+
+.hero-stats-input {
+  width: 2.5em;
+  border: 0;
+  padding: 0 .5em;
+
+  text-align: center;
+
+  color: #000;
+  background-color: transparent;
+}
+
+.hero-stats-increase,
+.hero-stats-decrease {
+  display: block;
+  border-radius: 100%;
+  padding: 0 .5em;
+
+  text-align: center;
+  text-decoration: none;
+
+  background-color: rgba(0,0,0,.5);
+
+  transition: background-color .2s;
+}
+
+.hero-stats-increase:hover,
+.hero-stats-decrease:hover {
+  background-color: rgba(0,0,0,.25);
+}
+
+.hero-stats-increase::after,
+.hero-stats-decrease::after {
+  display: block;
+  margin-top: -.0625em;
+
+  color: #FFF;
+}
+
+.hero-stats-increase::after {
+  content: "+";
+}
+
+.hero-stats-decrease::after {
+  content: "-";
+}

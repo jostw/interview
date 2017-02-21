@@ -1,0 +1,53 @@
+.hero-profile {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1em;
+  padding: 1em;
+
+  background-color: #E1F5FE;
+}
+
+.hero-profile-list {
+  margin: 0 2em 0 0;
+  padding: 0;
+}
+
+.hero-profile-stats {
+  padding-bottom: .75em;
+
+  list-style: none;
+}
+
+.hero-profile-stats:last-child {
+  padding-bottom: 0;
+}
+
+.hero-profile-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.hero-profile-remainder {
+  margin-bottom: .5em;
+
+  font-size: 12px;
+
+  color: #9E9E9E;
+}
+
+.hero-profile-save {
+  border: 0;
+  padding: .5em 1em;
+  border-radius: 1em;
+
+  color: #FFF;
+  background-color: #E91E63;
+
+  transition: background-color .5s;
+  cursor: pointer;
+}
+
+.hero-profile-save:hover {
+  background-color: #F06292;
+}
