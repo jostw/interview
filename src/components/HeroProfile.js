@@ -25,22 +25,22 @@ class HeroProfile extends Component {
             onSubmit={ updateHeroProfile(id, { str, int, agi, luk }) }>
         <ul className="hero-profile-list">
           <li className="hero-profile-stats">
-            <HeroStats label="str" value={ str }
+            <HeroStats label="str" value={ str } remainder={ remainder }
                        increaseHeroStats={ increaseHeroStats }
                        decreaseHeroStats={ decreaseHeroStats } />
           </li>
           <li className="hero-profile-stats">
-            <HeroStats label="int" value={ int }
+            <HeroStats label="int" value={ int } remainder={ remainder }
                        increaseHeroStats={ increaseHeroStats }
                        decreaseHeroStats={ decreaseHeroStats } />
           </li>
           <li className="hero-profile-stats">
-            <HeroStats label="agi" value={ agi }
+            <HeroStats label="agi" value={ agi } remainder={ remainder }
                        increaseHeroStats={ increaseHeroStats }
                        decreaseHeroStats={ decreaseHeroStats } />
           </li>
           <li className="hero-profile-stats">
-            <HeroStats label="luk" value={ luk }
+            <HeroStats label="luk" value={ luk } remainder={ remainder }
                        increaseHeroStats={ increaseHeroStats }
                        decreaseHeroStats={ decreaseHeroStats } />
           </li>

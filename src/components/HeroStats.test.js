@@ -7,6 +7,7 @@ it('renders without crashing', () => {
   const stats = {
     label: 'test',
     value: Math.floor(Math.random() * 100),
+    remainder: Math.floor(Math.random() * 100),
     increaseHeroStats: jest.fn(),
     decreaseHeroStats: jest.fn()
   };
@@ -28,4 +29,10 @@ it('renders without crashing', () => {
   expect(wrapper.find('.hero-stats-decrease').length).toBe(1);
   wrapper.find('.hero-stats-decrease').simulate('click');
   expect(wrapper.props().decreaseHeroStats.mock.calls.length).toBe(1);
+
+  wrapper.setProps({ remainder: 0 });
+  expect(wrapper.find('.hero-stats-increase-disabled').length).toBe(1);
+
+  wrapper.setProps({ value: 0 });
+  expect(wrapper.find('.hero-stats-decrease-disabled').length).toBe(1);
 });

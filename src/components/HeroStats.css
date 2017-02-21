@@ -55,3 +55,12 @@
 .hero-stats-decrease::after {
   content: "-";
 }
+
+.hero-stats-increase-disabled,
+.hero-stats-decrease-disabled,
+.hero-stats-increase-disabled:hover,
+.hero-stats-decrease-disabled:hover {
+  background-color: rgba(0,0,0,.1);
+
+  cursor: default;
+}
