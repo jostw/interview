@@ -20,6 +20,7 @@ git clone https://github.com/jostw/hahow-recruit.git
 
 - Make sure [Node.js](https://nodejs.org/) is installed properly.
 - Recommend using [Yarn](https://github.com/yarnpkg/yarn).
+- Use ` yarn ` for installing all packages.
 - Use ` yarn start ` for watching files and developing at ` http://localhost:3000 `.
 - Use ` yarn build ` for building production assets and start a server at port 3000 with server side rendered.
 - Use ` yarn test ` for testing.
