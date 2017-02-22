@@ -10,7 +10,7 @@ export const FETCH_HERO_PROFILE = 'FETCH_HERO_PROFILE';
 export const REQUEST_HERO_PROFILE = 'REQUEST_HERO_PROFILE';
 export const RECEIVE_HERO_PROFILE = 'RECEIVE_HERO_PROFILE';
 
-export const fetchHeroProfile = heroId => ({ type: FETCH_HERO_PROFILE, heroId });
+export const fetchHeroProfile = id => ({ type: FETCH_HERO_PROFILE, id });
 export const requestHeroProfile = () => ({ type: REQUEST_HERO_PROFILE });
 export const receiveHeroProfile = profile => ({ type: RECEIVE_HERO_PROFILE, profile });
 
@@ -23,5 +23,5 @@ export const decreaseHeroStats = label => ({ type: DECREASE_HERO_STATS, label })
 export const UPDATE_HERO_PROFILE = 'UPDATE_HERO_PROFILE';
 export const PATCH_HERO_PROFILE = 'PATCH_HERO_PROFILE';
 
-export const updateHeroProfile = (heroId, profile) => ({ type: UPDATE_HERO_PROFILE, heroId, profile });
+export const updateHeroProfile = (id, profile) => ({ type: UPDATE_HERO_PROFILE, id, profile });
 export const patchHeroProfile = () => ({ type: PATCH_HERO_PROFILE });

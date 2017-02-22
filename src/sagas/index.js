@@ -20,12 +20,12 @@ export function fetchHeroesApi() {
   return fetchApi('/heroes');
 }
 
-export function fetchHeroProfileApi(heroId) {
-  return fetchApi(`/heroes/${heroId}/profile`);
+export function fetchHeroProfileApi(id) {
+  return fetchApi(`/heroes/${id}/profile`);
 }
 
-export function updateHeroProfileApi(heroId, profile) {
-  return fetchApi(`/heroes/${heroId}/profile`, {
+export function updateHeroProfileApi(id, profile) {
+  return fetchApi(`/heroes/${id}/profile`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json'
@@ -40,15 +40,15 @@ export function* fetchHeroes() {
   yield put(actions.receiveHeroes(heroes));
 }
 
-export function* fetchHeroProfile({ heroId }) {
+export function* fetchHeroProfile({ id }) {
   yield put(actions.requestHeroProfile());
-  const profile = yield call(fetchHeroProfileApi, heroId);
+  const profile = yield call(fetchHeroProfileApi, id);
   yield put(actions.receiveHeroProfile(profile));
 }
 
-export function* updateHeroProfile({ heroId, profile }) {
+export function* updateHeroProfile({ id, profile }) {
   yield put(actions.patchHeroProfile());
-  yield call(updateHeroProfileApi, heroId, profile);
+  yield call(updateHeroProfileApi, id, profile);
 }
 
 function* watchFetchHeroes() {
