@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { RECEIVE_HEROES, RECEIVE_HERO_PROFILE,
+import { RECEIVE_HEROES, RECEIVE_HERO_PROFILE, REFRESH_HERO_PROFILE,
          INCREASE_HERO_STATS, DECREASE_HERO_STATS } from '../actions';
 
 function list(state = [], action) {
@@ -26,6 +26,12 @@ function profile(state = {
         ...action.profile,
         // Reset remainder and hasChanged stats after new hero profile is loaded.
         remainder: 0,
+        hasChanged: false
+      };
+    case REFRESH_HERO_PROFILE:
+      return {
+        ...state,
+        // Reset hasChanged stats after hero profile has updated.
         hasChanged: false
       };
     case INCREASE_HERO_STATS:

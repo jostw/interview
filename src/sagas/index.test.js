@@ -41,4 +41,7 @@ it('update hero profile', () => {
 
   next = generator.next();
   expect(next.value).toEqual(call(updateHeroProfileApi, id, profile));
+
+  next = generator.next();
+  expect(next.value).toEqual(put(actions.refreshHeroProfile()));
 });

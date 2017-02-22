@@ -18,6 +18,7 @@ export function* fetchHeroProfile({ id }) {
 export function* updateHeroProfile({ id, profile }) {
   yield put(actions.patchHeroProfile());
   yield call(updateHeroProfileApi, id, profile);
+  yield put(actions.refreshHeroProfile());
 }
 
 function* watchFetchHeroes() {
