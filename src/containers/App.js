@@ -35,6 +35,7 @@ class App extends Component {
   componentWillUpdate(nextProps) {
     const { params } = nextProps;
 
+    // Don't re-fetch with same hero id.
     if (params.heroId && params.heroId !== this.props.params.heroId) {
       this.props.actions.fetchHeroProfile(params.heroId);
     }
