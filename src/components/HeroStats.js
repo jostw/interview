@@ -1,5 +1,8 @@
 import React, { Component, PropTypes } from 'react';
-import './HeroStats.css';
+
+if (!process.env.SERVER) {
+  require('./HeroStats.css');
+}
 
 class HeroStats extends Component {
   static propTypes = {

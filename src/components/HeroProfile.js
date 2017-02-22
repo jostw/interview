@@ -1,6 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 
-import './HeroProfile.css';
+if (!process.env.SERVER) {
+  require('./HeroProfile.css');
+}
+
 import HeroStats from './HeroStats';
 
 class HeroProfile extends Component {

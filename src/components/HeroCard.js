@@ -1,7 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 
-import './HeroCard.css';
+if (!process.env.SERVER) {
+  require('./HeroCard.css');
+}
 
 class HeroCard extends Component {
   static propTypes = {
