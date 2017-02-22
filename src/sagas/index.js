@@ -1,38 +1,7 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
-import fetch from 'isomorphic-fetch';
 
 import * as actions from '../actions';
-
-const API_DOMAIN = 'http://hahow-recruit.herokuapp.com';
-
-function fetchApi(api, data = {}) {
-  const fetchPromise = fetch(API_DOMAIN + api, data);
-
-  if (data.method === 'PATCH') {
-    // Response for `PATCH` is not in json format, return promise directly.
-    return fetchPromise;
-  }
-
-  return fetchPromise.then(response => response.json());
-}
-
-export function fetchHeroesApi() {
-  return fetchApi('/heroes');
-}
-
-export function fetchHeroProfileApi(id) {
-  return fetchApi(`/heroes/${id}/profile`);
-}
-
-export function updateHeroProfileApi(id, profile) {
-  return fetchApi(`/heroes/${id}/profile`, {
-    method: 'PATCH',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(profile)
-  });
-}
+import { fetchHeroesApi, fetchHeroProfileApi, updateHeroProfileApi } from '../api';
 
 export function* fetchHeroes() {
   yield put(actions.requestHeroes());

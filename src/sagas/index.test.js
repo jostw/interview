@@ -1,8 +1,8 @@
 import { call, put } from 'redux-saga/effects';
 
 import * as actions from '../actions';
-import { fetchHeroes, fetchHeroProfile, updateHeroProfile,
-         fetchHeroesApi, fetchHeroProfileApi, updateHeroProfileApi } from './index';
+import { fetchHeroes, fetchHeroProfile, updateHeroProfile } from './index';
+import { fetchHeroesApi, fetchHeroProfileApi, updateHeroProfileApi } from '../api';
 
 it('fetch heroes', () => {
   const generator = fetchHeroes();
