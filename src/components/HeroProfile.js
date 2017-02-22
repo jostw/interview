@@ -60,7 +60,7 @@ class HeroProfile extends Component {
           </li>
         </ul>
         <div className="hero-profile-panel">
-          <span className="hero-profile-remainder">{ `剩餘點數：${remainder}` }</span>
+          <span className="hero-profile-remainder">{ `剩餘點數：${remainder || 0}` }</span>
           <button className={ heroProfileSaveClassList.join(' ') }
                   disabled={ isHeroProfileSaveDisabled }>儲存</button>
         </div>
