@@ -27,3 +27,11 @@ export const REFRESH_HERO_PROFILE = 'REFRESH_HERO_PROFILE';
 export const updateHeroProfile = (id, profile) => ({ type: UPDATE_HERO_PROFILE, id, profile });
 export const patchHeroProfile = () => ({ type: PATCH_HERO_PROFILE });
 export const refreshHeroProfile = () => ({ type: REFRESH_HERO_PROFILE });
+
+export const FETCH_I18N = 'FETCH_I18N';
+export const REQUEST_I18N = 'REQUEST_I18N';
+export const RECEIVE_I18N = 'RECEIVE_I18N';
+
+export const fetchI18n = () => ({ type: FETCH_I18N });
+export const requestI18n = () => ({ type: REQUEST_I18N });
+export const receiveI18n = i18n => ({ type: RECEIVE_I18N, i18n });

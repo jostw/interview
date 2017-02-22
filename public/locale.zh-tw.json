@@ -1,0 +1,11 @@
+{
+  "HERO_STATS_STR": "str",
+  "HERO_STATS_INT": "int",
+  "HERO_STATS_AGI": "agi",
+  "HERO_STATS_LUK": "luk",
+
+  "HERO_PROFILE_REMAINDER": "剩餘點數",
+  "COLON": "：",
+
+  "HERO_PROFILE_SAVE": "儲存"
+}

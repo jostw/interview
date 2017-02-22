@@ -14,12 +14,20 @@ class App extends Component {
     }).isRequired
   }
 
+  static childContextTypes = {
+    i18n: PropTypes.object
+  }
+
   constructor(props) {
     super(props);
 
     this.increaseHeroStats = this.increaseHeroStats.bind(this);
     this.decreaseHeroStats = this.decreaseHeroStats.bind(this);
     this.updateHeroProfile = this.updateHeroProfile.bind(this);
+  }
+
+  getChildContext() {
+    return { i18n: this.props.i18n };
   }
 
   componentWillMount() {
@@ -37,6 +45,8 @@ class App extends Component {
     if (params.heroId) {
       actions.fetchHeroProfile(params.heroId);
     }
+
+    actions.fetchI18n();
   }
 
   componentWillUpdate(nextProps) {
@@ -93,7 +103,10 @@ class App extends Component {
 }
 
 function mapStateToProps(state) {
-  return { hero: state.hero };
+  return {
+    hero: state.hero,
+    i18n: state.i18n
+  };
 }
 
 function mapDispatchToProps(dispatch) {

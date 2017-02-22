@@ -31,6 +31,12 @@ export function updateHeroProfileApi(heroId, profile) {
   });
 }
 
+export function fetchI18nApi() {
+  const lang = document.documentElement.lang;
+
+  return fetch(`/locale.${lang}.json`).then(response => response.json());
+}
+
 export default function rootApi(pathname) {
   const matchingResults = pathname.match(/heroes\/(.+)/);
 

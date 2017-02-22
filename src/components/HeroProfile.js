@@ -20,9 +20,14 @@ class HeroProfile extends Component {
     updateHeroProfile: PropTypes.func
   }
 
+  static contextTypes = {
+    i18n: PropTypes.object
+  }
+
   render() {
     const { id, str, int, agi, luk, remainder, hasChanged,
             increaseHeroStats, decreaseHeroStats, updateHeroProfile } = this.props;
+    const { i18n } = this.context;
 
     const isHeroProfileSaveDisabled = !hasChanged || remainder > 0;
     let heroProfileSaveClassList = ['hero-profile-save'];
@@ -39,30 +44,32 @@ class HeroProfile extends Component {
             onSubmit={ updateHeroProfile(id, { str, int, agi, luk }) }>
         <ul className="hero-profile-list">
           <li className="hero-profile-stats">
-            <HeroStats label="str" value={ str } remainder={ remainder }
+            <HeroStats label={ i18n.HERO_STATS_STR } value={ str } remainder={ remainder }
                        increaseHeroStats={ increaseHeroStats }
                        decreaseHeroStats={ decreaseHeroStats } />
           </li>
           <li className="hero-profile-stats">
-            <HeroStats label="int" value={ int } remainder={ remainder }
+            <HeroStats label={ i18n.HERO_STATS_INT } value={ int } remainder={ remainder }
                        increaseHeroStats={ increaseHeroStats }
                        decreaseHeroStats={ decreaseHeroStats } />
           </li>
           <li className="hero-profile-stats">
-            <HeroStats label="agi" value={ agi } remainder={ remainder }
+            <HeroStats label={ i18n.HERO_STATS_AGI } value={ agi } remainder={ remainder }
                        increaseHeroStats={ increaseHeroStats }
                        decreaseHeroStats={ decreaseHeroStats } />
           </li>
           <li className="hero-profile-stats">
-            <HeroStats label="luk" value={ luk } remainder={ remainder }
+            <HeroStats label={ i18n.HERO_STATS_LUK } value={ luk } remainder={ remainder }
                        increaseHeroStats={ increaseHeroStats }
                        decreaseHeroStats={ decreaseHeroStats } />
           </li>
         </ul>
         <div className="hero-profile-panel">
-          <span className="hero-profile-remainder">{ `剩餘點數：${remainder || 0}` }</span>
+          <span className="hero-profile-remainder">{
+            `${i18n.HERO_PROFILE_REMAINDER + i18n.COLON + (remainder || 0)}`
+          }</span>
           <button className={ heroProfileSaveClassList.join(' ') }
-                  disabled={ isHeroProfileSaveDisabled }>儲存</button>
+                  disabled={ isHeroProfileSaveDisabled }>{ i18n.HERO_PROFILE_SAVE }</button>
         </div>
       </form>
     );

@@ -34,6 +34,10 @@ app.get('*', (req, res) => {
       return;
     }
 
+    // Provide language file base on user agent.
+    const lang = 'zh-tw';
+    const i18n = require(`./build/locale.${lang}.json`);
+
     api(req.url).then(preloadedState => {
       const store = configureStore(preloadedState);
       const root = renderToString(
@@ -47,7 +51,7 @@ app.get('*', (req, res) => {
         `<div id="root">${root}</div>
          <script>
            window.__PRELOADED_STATE__ = ${
-             JSON.stringify(preloadedState).replace(/</g, '\\u003c')
+             JSON.stringify({ ...preloadedState, i18n }).replace(/</g, '\\u003c')
            };
          </script>`
       );

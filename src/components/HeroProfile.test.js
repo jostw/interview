@@ -2,12 +2,15 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 
 import HeroProfile from './HeroProfile';
+import i18n from '../../public/locale.zh-tw.json';
+
+const context = { i18n };
 
 it('renders without crashing', () => {
   const profile = createMockProfile();
 
   const wrapper = shallow(
-    <HeroProfile { ...profile } />
+    <HeroProfile { ...profile } />, { context }
   );
 
   expect(wrapper.hasClass('hero-profile')).toBe(true);
@@ -22,7 +25,7 @@ it('disabled saving button when changes have not made or remainder stats is not 
   const profile = createMockProfile();
 
   const wrapper = shallow(
-    <HeroProfile { ...profile } />
+    <HeroProfile { ...profile } />, { context }
   );
 
   expect(wrapper.find('.hero-profile-save-disabled').length).toBe(1);
@@ -38,7 +41,7 @@ it('update hero profile on saving', () => {
   const profile = createMockProfile();
 
   const wrapper = mount(
-    <HeroProfile { ...profile } />
+    <HeroProfile { ...profile } />, { context }
   );
 
   wrapper.find('.hero-profile-save').simulate('click');
