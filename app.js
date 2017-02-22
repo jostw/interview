@@ -42,10 +42,17 @@ app.get('*', (req, res) => {
         </Provider>
       );
 
-      res.send(index.replace(
+      const preloadedIndex = index.replace(
         '<div id="root"></div>',
-        `<div id="root">${root}</div>`)
+        `<div id="root">${root}</div>
+         <script>
+           window.__PRELOADED_STATE__ = ${
+             JSON.stringify(preloadedState).replace(/</g, '\\u003c')
+           };
+         </script>`
       );
+
+      res.send(preloadedIndex);
     });
   });
 });

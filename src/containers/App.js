@@ -23,6 +23,13 @@ class App extends Component {
   }
 
   componentWillMount() {
+    if (!process.env.SERVER && window.__PRELOADED_STATE__) {
+      // Allow the passed state to be garbage-collected.
+      delete window.__PRELOADED_STATE__;
+      return;
+    }
+
+    // When preloadedState is unaccessable, grab data from server.
     const { params, actions } = this.props;
 
     actions.fetchHeroes();

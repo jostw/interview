@@ -6,11 +6,28 @@ import { Router, browserHistory } from 'react-router';
 import 'normalize.css';
 import './index.css';
 
+import routes from './routes';
 import configureStore from './store/configureStore';
 import rootSaga from './sagas';
-import routes from './routes';
 
-const store = configureStore();
+let preloadedState = window.__PRELOADED_STATE__;
+
+if (preloadedState) {
+  const { hero } = preloadedState;
+
+  preloadedState = {
+    hero: {
+      list: hero.list,
+      profile: {
+        ...hero.profile,
+        remainder: 0,
+        hasChanged: false
+      }
+    }
+  };
+}
+
+const store = configureStore(preloadedState);
 store.runSaga(rootSaga);
 
 ReactDOM.render(
