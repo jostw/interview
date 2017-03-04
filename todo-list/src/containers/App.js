@@ -3,18 +3,21 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import * as actions from '../actions';
+import TodoList from '../components/TodoList';
 
 class App extends Component {
   render() {
+    const { todos } = this.props;
+
     return (
-      <div>Hello World!</div>
+      <TodoList todos={ todos } />
     );
   }
 }
 
 function mapStateToProps(state) {
   return {
-    root: state.root
+    todos: state.todos
   };
 }
 
