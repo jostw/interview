@@ -1,8 +1,39 @@
 .todo-item {
+  position: relative;
+
   width: 15em;
   border: 1px solid #F5F5F5;
   border-bottom: 0;
   padding: .5em;
 
   background-color: #FFF;
+}
+
+.todo-item:hover .todo-item-remove {
+  opacity: 1;
+}
+
+.todo-item-text {
+
+}
+
+.todo-item-remove {
+  position: absolute;
+  top: .5em;
+  right: .5em;
+
+  opacity: 0;
+
+  font-size: 16px;
+  line-height: 1.5em;
+  text-decoration: none;
+
+  color: #BDBDBD;
+
+  transition: opacity .2s,
+              color .2s;
+}
+
+.todo-item-remove:hover {
+  color: #F44336;
 }

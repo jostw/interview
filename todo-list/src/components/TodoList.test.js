@@ -5,9 +5,11 @@ import TodoList from './TodoList';
 
 it('renders without crashing', () => {
   const todos = [];
+  const removeTodo = jest.fn();
 
   const wrapper = shallow(
-    <TodoList todos={ todos } />
+    <TodoList todos={ todos }
+              removeTodo={ removeTodo } />
   );
 
   expect(wrapper.html()).toBe(null);
@@ -21,8 +23,11 @@ it('renders list of todos', () => {
     }
   ];
 
+  const removeTodo = jest.fn();
+
   const wrapper = shallow(
-    <TodoList todos={ todos } />
+    <TodoList todos={ todos }
+              removeTodo={ removeTodo } />
   );
 
   expect(wrapper.hasClass('todo-list')).toBe(true);

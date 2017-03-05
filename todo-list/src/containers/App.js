@@ -11,6 +11,7 @@ class App extends Component {
     super(props);
 
     this.addTodo = this.addTodo.bind(this);
+    this.removeTodo = this.removeTodo.bind(this);
   }
 
   render() {
@@ -19,13 +20,22 @@ class App extends Component {
     return (
       <div className="container">
         <TodoForm addTodo={ this.addTodo } />
-        <TodoList todos={ todos } />
+        <TodoList todos={ todos }
+                  removeTodo={ this.removeTodo } />
       </div>
     );
   }
 
   addTodo(text) {
     this.props.actions.addTodo(text);
+  }
+
+  removeTodo(id) {
+    return e => {
+      e.preventDefault();
+
+      this.props.actions.removeTodo(id);
+    };
   }
 }
 

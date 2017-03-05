@@ -5,11 +5,15 @@ import TodoItem from './TodoItem';
 
 class TodoList extends Component {
   static propTypes = {
-    todos: PropTypes.arrayOf(PropTypes.shape(TodoItem.propTypes)).isRequired,
+    todos: PropTypes.arrayOf(PropTypes.shape({
+      id: TodoItem.propTypes.id,
+      text: TodoItem.propTypes.text
+    })).isRequired,
+    removeTodo: PropTypes.func.isRequired
   }
 
   render() {
-    const { todos } = this.props;
+    const { todos, removeTodo } = this.props;
 
     if (todos.length === 0) {
       return null;
@@ -20,7 +24,8 @@ class TodoList extends Component {
         todos.map(todo => {
           return (
             <li key={ todo.id }>
-              <TodoItem { ...todo } />
+              <TodoItem { ...todo }
+                        removeTodo={ removeTodo } />
             </li>
           );
         })

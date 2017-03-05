@@ -21,6 +21,7 @@ class TodoForm extends Component {
     return (
       <form className="todo-form" onSubmit={ this.onSubmit }>
         <input className="todo-form-input" type="text"
+               placeholder="What needs to be done?"
                ref={ node => this.input = node } />
       </form>
     );
