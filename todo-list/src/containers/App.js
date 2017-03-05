@@ -13,6 +13,8 @@ class App extends Component {
     this.addTodo = this.addTodo.bind(this);
     this.removeTodo = this.removeTodo.bind(this);
     this.toggleTodo = this.toggleTodo.bind(this);
+    this.editTodo = this.editTodo.bind(this);
+    this.updateTodo = this.updateTodo.bind(this);
   }
 
   render() {
@@ -23,7 +25,9 @@ class App extends Component {
         <TodoForm addTodo={ this.addTodo } />
         <TodoList todos={ todos }
                   removeTodo={ this.removeTodo }
-                  toggleTodo={ this.toggleTodo } />
+                  toggleTodo={ this.toggleTodo }
+                  editTodo={ this.editTodo }
+                  updateTodo={ this.updateTodo } />
       </div>
     );
   }
@@ -44,6 +48,16 @@ class App extends Component {
     return () => {
       this.props.actions.toggleTodo(id);
     };
+  }
+
+  editTodo(id) {
+    return () => {
+      this.props.actions.editTodo(id);
+    };
+  }
+
+  updateTodo(id, text) {
+    this.props.actions.updateTodo(id, text);
   }
 }
 

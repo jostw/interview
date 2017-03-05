@@ -8,14 +8,17 @@ class TodoList extends Component {
     todos: PropTypes.arrayOf(PropTypes.shape({
       id: TodoItem.propTypes.id,
       text: TodoItem.propTypes.text,
-      isCompleted: TodoItem.propTypes.isCompleted
+      isCompleted: TodoItem.propTypes.isCompleted,
+      isEditing: TodoItem.propTypes.isEditing
     })).isRequired,
     removeTodo: PropTypes.func.isRequired,
-    toggleTodo: PropTypes.func.isRequired
+    toggleTodo: PropTypes.func.isRequired,
+    editTodo: PropTypes.func.isRequired,
+    updateTodo: PropTypes.func.isRequired
   }
 
   render() {
-    const { todos, removeTodo, toggleTodo } = this.props;
+    const { todos, removeTodo, toggleTodo, editTodo, updateTodo } = this.props;
 
     if (todos.length === 0) {
       return null;
@@ -28,7 +31,9 @@ class TodoList extends Component {
             <li key={ todo.id }>
               <TodoItem { ...todo }
                         removeTodo={ removeTodo }
-                        toggleTodo={ toggleTodo } />
+                        toggleTodo={ toggleTodo }
+                        editTodo={ editTodo }
+                        updateTodo={ updateTodo } />
             </li>
           );
         })

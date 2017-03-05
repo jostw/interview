@@ -36,6 +36,34 @@ it('toggle todo', () => {
 
   wrapper.find('.todo-item-checkbox').simulate('click');
   expect(wrapper.props().toggleTodo.mock.calls.length).toBe(1);
+
+  wrapper.setState({ isCompleted: true });
+  expect(wrapper.hasClass('todo-item-completed'));
+});
+
+it('edit todo', () => {
+  const todo = createMockTodoItem();
+
+  const wrapper = mount(
+    <TodoItem { ...todo } />
+  );
+
+  wrapper.find('.todo-item-text').simulate('click');
+  expect(wrapper.props().editTodo.mock.calls.length).toBe(1);
+
+  wrapper.setState({ isEditing: true });
+  expect(wrapper.hasClass('todo-item-editing'));
+});
+
+it('update todo', () => {
+  const todo = createMockTodoItem();
+
+  const wrapper = mount(
+    <TodoItem { ...todo } />
+  );
+
+  wrapper.find('.todo-item-form').simulate('submit');
+  expect(wrapper.props().updateTodo.mock.calls.length).toBe(1);
 });
 
 function createMockTodoItem() {
@@ -43,7 +71,10 @@ function createMockTodoItem() {
     id: Math.floor(Math.random() * 10000),
     text: 'test',
     isCompleted: false,
+    isEditing: false,
     removeTodo: jest.fn(),
-    toggleTodo: jest.fn()
+    toggleTodo: jest.fn(),
+    editTodo: jest.fn(),
+    updateTodo: jest.fn()
   };
 }

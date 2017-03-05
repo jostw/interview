@@ -23,6 +23,10 @@
   color: #9E9E9E;
 }
 
+.todo-item-editing .todo-item-form {
+  display: block;
+}
+
 .todo-item-checkbox {
   position: absolute;
   top: 50%;
@@ -54,7 +58,12 @@
 }
 
 .todo-item-text {
+  display: block;
+  min-height: 1.5em;
+
   word-break: break-word;
+
+  cursor: pointer;
 }
 
 .todo-item-remove {
@@ -77,4 +86,25 @@
 
 .todo-item-remove:hover {
   color: #F44336;
+}
+
+.todo-item-form {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  left: -1px;
+  z-index: 1;
+
+  display: none;
+}
+
+.todo-item-input {
+  width: 100%;
+  border: 1px solid #E0E0E0;
+  outline: none;
+  padding: .75em 1em;
+
+  line-height: 1.5em;
+
+  box-shadow: inset 0 0 10px #DDD;
 }

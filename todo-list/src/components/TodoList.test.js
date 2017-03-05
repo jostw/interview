@@ -7,11 +7,15 @@ it('renders without crashing', () => {
   const todos = [];
   const removeTodo = jest.fn();
   const toggleTodo = jest.fn();
+  const editTodo = jest.fn();
+  const updateTodo = jest.fn();
 
   const wrapper = shallow(
     <TodoList todos={ todos }
               removeTodo={ removeTodo }
-              toggleTodo={ toggleTodo } />
+              toggleTodo={ toggleTodo }
+              editTodo={ editTodo }
+              updateTodo={ updateTodo } />
   );
 
   expect(wrapper.html()).toBe(null);
@@ -22,17 +26,22 @@ it('renders list of todos', () => {
     {
       id: Math.floor(Math.random() * 10000),
       text: 'test',
-      isCompleted: false
+      isCompleted: false,
+      isEditing: false
     }
   ];
 
   const removeTodo = jest.fn();
   const toggleTodo = jest.fn();
+  const editTodo = jest.fn();
+  const updateTodo = jest.fn();
 
   const wrapper = shallow(
     <TodoList todos={ todos }
               removeTodo={ removeTodo }
-              toggleTodo={ toggleTodo } />
+              toggleTodo={ toggleTodo }
+              editTodo={ editTodo }
+              updateTodo={ updateTodo } />
   );
 
   expect(wrapper.hasClass('todo-list')).toBe(true);
