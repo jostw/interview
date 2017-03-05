@@ -17,7 +17,7 @@ class App extends Component {
     const { todos } = this.props;
 
     return (
-      <div>
+      <div className="container">
         <TodoForm addTodo={ this.addTodo } />
         <TodoList todos={ todos } />
       </div>

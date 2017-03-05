@@ -1,7 +1,12 @@
 .todo-form {
+  display: flex;
+  justify-content: center;
 
+  padding: 2em 0 1em;
 }
 
 .todo-form-input {
-
+  width: 15em;
+  border: 1px solid #F5F5F5;
+  padding: .5em;
 }

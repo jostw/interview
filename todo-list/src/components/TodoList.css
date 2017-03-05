@@ -1,8 +1,18 @@
 .todo-list {
+  display: flex;
+  flex-direction: column;
+
   margin: 0;
   padding: 0;
 }
 
 .todo-list li {
+  display: flex;
+  justify-content: center;
+
   list-style: none;
+}
+
+.todo-list li:last-child .todo-item {
+  border-bottom: 1px solid #F5F5F5;
 }
