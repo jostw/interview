@@ -8,7 +8,7 @@
 .todo-form-input {
   width: 15em;
   border: 1px solid #F5F5F5;
-  padding: .5em;
+  padding: .5em .875em;
 }
 
 .todo-form-input::placeholder {

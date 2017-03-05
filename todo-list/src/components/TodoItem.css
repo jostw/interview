@@ -4,7 +4,7 @@
   width: 15em;
   border: 1px solid #F5F5F5;
   border-bottom: 0;
-  padding: .5em;
+  padding: .75em 2em .75em 1em;
 
   background-color: #FFF;
 }
@@ -14,12 +14,12 @@
 }
 
 .todo-item-text {
-
+  word-break: break-word;
 }
 
 .todo-item-remove {
   position: absolute;
-  top: .5em;
+  top: 50%;
   right: .5em;
 
   opacity: 0;
@@ -30,6 +30,7 @@
 
   color: #BDBDBD;
 
+  transform: translateY(-50%);
   transition: opacity .2s,
               color .2s;
 }
