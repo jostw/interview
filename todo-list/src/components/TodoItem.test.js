@@ -27,10 +27,23 @@ it('remove todo', () => {
   expect(wrapper.props().removeTodo.mock.calls.length).toBe(1);
 });
 
+it('toggle todo', () => {
+  const todo = createMockTodoItem();
+
+  const wrapper = mount(
+    <TodoItem { ...todo } />
+  );
+
+  wrapper.find('.todo-item-checkbox').simulate('click');
+  expect(wrapper.props().toggleTodo.mock.calls.length).toBe(1);
+});
+
 function createMockTodoItem() {
   return {
     id: Math.floor(Math.random() * 10000),
     text: 'test',
-    removeTodo: jest.fn()
+    isCompleted: false,
+    removeTodo: jest.fn(),
+    toggleTodo: jest.fn()
   };
 }

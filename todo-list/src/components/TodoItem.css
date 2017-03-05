@@ -13,6 +13,46 @@
   opacity: 1;
 }
 
+.todo-item-completed .todo-item-checkbox::after {
+  content: '\f00c';
+}
+
+.todo-item-completed .todo-item-text {
+  text-decoration: line-through;
+
+  color: #9E9E9E;
+}
+
+.todo-item-checkbox {
+  position: absolute;
+  top: 50%;
+  left: -1.75em;
+
+  transform: translateY(-50%);
+}
+
+.todo-item-checkbox::after {
+  content: '';
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: 1.5em;
+  height: 1.5em;
+  border: 1px solid #F5F5F5;
+  border-radius: 100%;
+
+  line-height: 1.5em;
+  text-align: center;
+
+  color: #9E9E9E;
+  background-color: #FFF;
+
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
 .todo-item-text {
   word-break: break-word;
 }

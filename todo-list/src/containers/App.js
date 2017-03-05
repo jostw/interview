@@ -12,6 +12,7 @@ class App extends Component {
 
     this.addTodo = this.addTodo.bind(this);
     this.removeTodo = this.removeTodo.bind(this);
+    this.toggleTodo = this.toggleTodo.bind(this);
   }
 
   render() {
@@ -21,7 +22,8 @@ class App extends Component {
       <div className="container">
         <TodoForm addTodo={ this.addTodo } />
         <TodoList todos={ todos }
-                  removeTodo={ this.removeTodo } />
+                  removeTodo={ this.removeTodo }
+                  toggleTodo={ this.toggleTodo } />
       </div>
     );
   }
@@ -35,6 +37,12 @@ class App extends Component {
       e.preventDefault();
 
       this.props.actions.removeTodo(id);
+    };
+  }
+
+  toggleTodo(id) {
+    return () => {
+      this.props.actions.toggleTodo(id);
     };
   }
 }
