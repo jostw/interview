@@ -41,12 +41,12 @@ class App extends Component {
   }
 
   render() {
-    const { todos, filter, hasCompleted } = this.props;
+    const { todos, filter, hasTodos, hasCompleted } = this.props;
 
     let todoFilter = null;
     let todoClear = null;
 
-    if (todos.length > 0 || filter.filterType !== actions.FILTER_TYPE_ALL) {
+    if (hasTodos) {
       todoFilter = (
         <TodoFilter filter={ filter }
                     setFilterAll={ this.setFilterAll }
@@ -144,6 +144,7 @@ function mapStateToProps(state) {
     todos: filterTodos(state.todos, state.filter),
     filter: state.filter,
     i18n: state.i18n,
+    hasTodos: state.todos.length > 0,
     hasCompleted: state.todos.some(todo => todo.isCompleted)
   };
 }
