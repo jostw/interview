@@ -1,4 +1,5 @@
 import { dealCards } from './core/cards';
+import { checkFlush } from './flush';
 import { checkStraight } from './straight';
 
 const deck1 = dealCards();
@@ -7,8 +8,10 @@ const deck2 = dealCards(deck1);
 console.log('Deck 1:', deck1);
 console.log('Deck 2:', deck2);
 
-const hand1 = checkStraight(deck1) ? 1 : 0;
-const hand2 = checkStraight(deck2) ? 1 : 0;
+const hand1 = checkFlush(deck1) ? 2 :
+              checkStraight(deck1) ? 1 : 0;
+const hand2 = checkFlush(deck2) ? 2 :
+              checkStraight(deck2) ? 1 : 0;
 
 if (hand1 > hand2) {
   console.log('Deck 1 has the better hand.');
