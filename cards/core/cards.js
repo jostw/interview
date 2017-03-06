@@ -2,6 +2,10 @@ Array.prototype.ascendingSort = function() {
   return this.sort((a, b) => a - b);
 };
 
+Array.prototype.pluck = function(key) {
+  return this.map(object => object[key]);
+};
+
 export const suits = ['♣️', '♦️', '♥️', '♠️'];
 
 // Deal cards which will not pick same cards from previous deck.
