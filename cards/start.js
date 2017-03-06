@@ -1,10 +1,18 @@
 import { dealCards } from './core/cards';
-import { checkFullHouse } from './full-house';
-import { checkFlush } from './flush';
-import { checkStraight } from './straight';
+import { checkFullHouse, modifyDeckWithFullHouse } from './full-house';
+import { checkFlush, modifyDeckWithFlush } from './flush';
+import { checkStraight, modifyDeckWithStraight } from './straight';
 
-const deck1 = dealCards();
-const deck2 = dealCards(deck1);
+let deck1 = dealCards();
+let deck2 = dealCards(deck1);
+
+// deck1 = modifyDeckWithFullHouse(deck1);
+// deck1 = modifyDeckWithFlush(deck1);
+// deck1 = modifyDeckWithStraight(deck1);
+
+// deck2 = modifyDeckWithFullHouse(deck2);
+// deck2 = modifyDeckWithFlush(deck2);
+// deck2 = modifyDeckWithStraight(deck2);
 
 console.log('Deck 1:', deck1);
 console.log('Deck 2:', deck2);
