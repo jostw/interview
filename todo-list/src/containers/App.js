@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 
 import * as actions from '../actions';
 import TodoForm from '../components/TodoForm';
-import TodoList from '../components/TodoList';
 import TodoFilter from '../components/TodoFilter';
+import TodoList from '../components/TodoList';
 
 class App extends Component {
   constructor(props) {
@@ -39,12 +39,12 @@ class App extends Component {
     return (
       <div className="container">
         <TodoForm addTodo={ this.addTodo } />
+        { todoFilter }
         <TodoList todos={ todos }
                   removeTodo={ this.removeTodo }
                   toggleTodo={ this.toggleTodo }
                   editTodo={ this.editTodo }
                   updateTodo={ this.updateTodo } />
-        { todoFilter }
       </div>
     );
   }

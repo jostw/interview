@@ -2,15 +2,14 @@
   display: flex;
   justify-content: center;
 
-  padding: 1em 0 2em;
+  padding-bottom: 1em;
 }
 
 .todo-filter-list {
   display: flex;
-  justify-content: center;
 
   width: 15em;
-  margin: 0;
+  margin: 0 0 0 2em;
   padding: 0;
 }
 

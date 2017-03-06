@@ -1,10 +1,10 @@
 .todo-filter-link {
   display: block;
-  margin: 0 .25em;
+  margin-inline-end: .5em;
   border-radius: 5px;
   padding: .5em .75em;
 
-  font-size: 14px;
+  font-size: 12px;
   text-decoration: none;
 
   color: #BDBDBD;
