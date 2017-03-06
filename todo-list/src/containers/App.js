@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
@@ -9,6 +9,16 @@ import TodoList from '../components/TodoList';
 import TodoClear from '../components/TodoClear';
 
 class App extends Component {
+  static propTypes = {
+    todos: TodoList.propTypes.todos,
+    filter: TodoFilter.propTypes.filter,
+    hasCompleted: PropTypes.bool.isRequired
+  }
+
+  static childContextTypes = {
+    i18n: PropTypes.object.isRequired
+  }
+
   constructor(props) {
     super(props);
 
@@ -22,6 +32,12 @@ class App extends Component {
     this.setFilterAll = this.setFilterAll.bind(this);
     this.setFilterActive = this.setFilterActive.bind(this);
     this.setFilterCompleted = this.setFilterCompleted.bind(this);
+  }
+
+  getChildContext() {
+    return {
+      i18n: this.props.i18n
+    };
   }
 
   render() {
@@ -127,6 +143,7 @@ function mapStateToProps(state) {
   return {
     todos: filterTodos(state.todos, state.filter),
     filter: state.filter,
+    i18n: state.i18n,
     hasCompleted: state.todos.some(todo => todo.isCompleted)
   };
 }

@@ -14,6 +14,10 @@ class TodoItem extends Component {
     updateTodo: PropTypes.func.isRequired
   }
 
+  static contextTypes = {
+    i18n: PropTypes.object.isRequired
+  }
+
   constructor(props) {
     super(props);
 
@@ -28,6 +32,7 @@ class TodoItem extends Component {
 
   render() {
     const { id, text, isCompleted, isEditing, removeTodo, toggleTodo, editTodo } = this.props;
+    const { i18n } = this.context;
 
     let todoItemClassList = ['todo-item'];
 
@@ -45,7 +50,7 @@ class TodoItem extends Component {
                onChange={ toggleTodo(id) } />
         <label className="todo-item-text"
                onClick={ editTodo(id) }>{ text }</label>
-        <a className="todo-item-remove fa fa-trash-o" href="#" title="Remove"
+        <a className="todo-item-remove fa fa-trash-o" href="#" title={ i18n.TODO_ITEM_REMOVE }
            onClick={ removeTodo(id) }></a>
         <form className="todo-item-form" onSubmit={ this.onSubmit }>
           <input className="todo-item-input" type="text" defaultValue={ text }

@@ -2,12 +2,15 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 
 import TodoItem from './TodoItem';
+import i18n from '../reducers/i18n';
+
+const context = { i18n: i18n() };
 
 it('renders without crashing', () => {
   const todo = createMockTodoItem();
 
   const wrapper = shallow(
-    <TodoItem { ...todo } />
+    <TodoItem { ...todo } />, { context }
   );
 
   expect(wrapper.hasClass('todo-item')).toBe(true);
@@ -20,7 +23,7 @@ it('remove todo', () => {
   const todo = createMockTodoItem();
 
   const wrapper = mount(
-    <TodoItem { ...todo } />
+    <TodoItem { ...todo } />, { context }
   );
 
   wrapper.find('.todo-item-remove').simulate('click');
@@ -31,7 +34,7 @@ it('toggle todo', () => {
   const todo = createMockTodoItem();
 
   const wrapper = mount(
-    <TodoItem { ...todo } />
+    <TodoItem { ...todo } />, { context }
   );
 
   wrapper.find('.todo-item-checkbox').simulate('click');
@@ -45,7 +48,7 @@ it('edit todo', () => {
   const todo = createMockTodoItem();
 
   const wrapper = mount(
-    <TodoItem { ...todo } />
+    <TodoItem { ...todo } />, { context }
   );
 
   wrapper.find('.todo-item-text').simulate('click');
@@ -59,7 +62,7 @@ it('update todo', () => {
   const todo = createMockTodoItem();
 
   const wrapper = mount(
-    <TodoItem { ...todo } />
+    <TodoItem { ...todo } />, { context }
   );
 
   wrapper.find('.todo-item-form').simulate('submit');

@@ -7,14 +7,19 @@ class TodoClear extends Component {
     clearCompletedTodo: PropTypes.func.isRequired
   }
 
+  static contextTypes = {
+    i18n: PropTypes.object.isRequired
+  }
+
   render() {
     const { clearCompletedTodo } = this.props;
+    const { i18n } = this.context;
 
     return (
       <div className="todo-clear">
-        <a className="todo-clear-link" href="#" title="Clear completed"
+        <a className="todo-clear-link" href="#" title={ i18n.TODO_CLEAR_COMPLETED }
            onClick={ clearCompletedTodo }>
-          <span className="todo-clear-text">Clear completed</span>
+          <span className="todo-clear-text">{ i18n.TODO_CLEAR_COMPLETED }</span>
         </a>
       </div>
     );

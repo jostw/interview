@@ -3,6 +3,9 @@ import { shallow } from 'enzyme';
 
 import { FILTER_TYPE_ALL } from '../actions';
 import TodoFilter from './TodoFilter';
+import i18n from '../reducers/i18n';
+
+const context = { i18n: i18n() };
 
 it('renders without crashing', () => {
   const filter = { filterType: FILTER_TYPE_ALL };
@@ -14,7 +17,7 @@ it('renders without crashing', () => {
     <TodoFilter filter={ filter }
                 setFilterAll={ setFilterAll }
                 setFilterActive={ setFilterActive }
-                setFilterCompleted={ setFilterCompleted } />
+                setFilterCompleted={ setFilterCompleted } />, { context }
   );
 
   expect(wrapper.hasClass('todo-filter')).toBe(true);

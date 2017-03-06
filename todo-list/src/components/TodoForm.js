@@ -7,6 +7,10 @@ class TodoForm extends Component {
     addTodo: PropTypes.func.isRequired
   }
 
+  static contextTypes = {
+    i18n: PropTypes.object.isRequired
+  }
+
   constructor(props) {
     super(props);
 
@@ -18,10 +22,12 @@ class TodoForm extends Component {
   }
 
   render() {
+    const { i18n } = this.context;
+
     return (
       <form className="todo-form" onSubmit={ this.onSubmit }>
         <input className="todo-form-input" type="text"
-               placeholder="What needs to be done?"
+               placeholder={ i18n.TODO_FORM_INPUT_PLACEHOLDER }
                ref={ node => this.input = node } />
       </form>
     );

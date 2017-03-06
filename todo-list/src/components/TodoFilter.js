@@ -13,8 +13,13 @@ class TodoFilter extends Component {
     setFilterCompleted: PropTypes.func.isRequired
   }
 
+  static contextTypes = {
+    i18n: PropTypes.object.isRequired
+  }
+
   render() {
     const { filter, setFilterAll, setFilterActive, setFilterCompleted } = this.props;
+    const { i18n } = this.context;
 
     const todoFilterLlistClassList = [
       'todo-filter-list',
@@ -25,15 +30,15 @@ class TodoFilter extends Component {
       <div className="todo-filter">
         <ul className={ todoFilterLlistClassList.join(' ') }>
           <li>
-            <TodoFilterLink type="all" text="All"
+            <TodoFilterLink type="all" text={ i18n.TODO_FILTER_TYPE_ALL }
                             setFilter={ setFilterAll } />
           </li>
           <li>
-            <TodoFilterLink type="active" text="Active"
+            <TodoFilterLink type="active" text={ i18n.TODO_FILTER_TYPE_ACTIVE }
                             setFilter={ setFilterActive } />
           </li>
           <li>
-            <TodoFilterLink type="completed" text="Completed"
+            <TodoFilterLink type="completed" text={ i18n.TODO_FILTER_TYPE_COMPLETED }
                             setFilter={ setFilterCompleted } />
           </li>
         </ul>
