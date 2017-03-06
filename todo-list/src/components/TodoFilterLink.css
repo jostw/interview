@@ -1,0 +1,19 @@
+.todo-filter-link {
+  display: block;
+  margin: 0 .25em;
+  border-radius: 5px;
+  padding: .5em .75em;
+
+  font-size: 14px;
+  text-decoration: none;
+
+  color: #BDBDBD;
+
+  transition: color .2s,
+              background-color .2s;
+}
+
+.todo-filter-link:hover {
+  color: #000;
+  background-color: #E0E0E0;
+}

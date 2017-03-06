@@ -9,3 +9,10 @@ export const removeTodo = id => ({ type: REMOVE_TODO, id });
 export const toggleTodo = id => ({ type: TOGGLE_TODO, id });
 export const editTodo = id => ({ type: EDIT_TODO, id });
 export const updateTodo = (id, text) => ({ type: UPDATE_TODO, id, text });
+
+export const FILTER_TYPE_ALL = 'FILTER_TYPE_ALL';
+export const FILTER_TYPE_ACTIVE = 'FILTER_TYPE_ACTIVE';
+export const FILTER_TYPE_COMPLETED = 'FILTER_TYPE_COMPLETED';
+export const SET_FILTER = 'SET_FILTER';
+
+export const setFilter = filterType => ({ type: SET_FILTER, filterType });

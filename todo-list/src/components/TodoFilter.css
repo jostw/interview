@@ -1,0 +1,29 @@
+.todo-filter {
+  display: flex;
+  justify-content: center;
+
+  padding: 1em 0 2em;
+}
+
+.todo-filter-list {
+  display: flex;
+  justify-content: center;
+
+  width: 15em;
+  margin: 0;
+  padding: 0;
+}
+
+.todo-filter-list li {
+  list-style: none;
+}
+
+.todo-filter-type-all .todo-filter-link-all,
+.todo-filter-type-all .todo-filter-link-all:hover,
+.todo-filter-type-active .todo-filter-link-active,
+.todo-filter-type-active .todo-filter-link-active:hover,
+.todo-filter-type-completed .todo-filter-link-completed,
+.todo-filter-type-completed .todo-filter-link-completed:hover {
+  color: #000;
+  background-color: #BDBDBD;
+}

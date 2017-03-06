@@ -72,4 +72,4 @@ function removeTodo(state, action) {
   ];
 }
 
-export default todos
+export default todos;

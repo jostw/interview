@@ -28,7 +28,7 @@ class TodoList extends Component {
       <ul className="todo-list">{
         todos.map(todo => {
           return (
-            <li key={ todo.id }>
+            <li key={ `todo-${todo.id}` }>
               <TodoItem { ...todo }
                         removeTodo={ removeTodo }
                         toggleTodo={ toggleTodo }
