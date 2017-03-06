@@ -1,0 +1,24 @@
+.todo-clear {
+  display: flex;
+  justify-content: center;
+
+  padding-bottom: 2em;
+}
+
+.todo-clear-link {
+  width: 15em;
+  margin-inline-start: 2em;
+
+  text-align: end;
+  text-decoration: none;
+
+  color: #9E9E9E;
+}
+
+.todo-clear-link:hover {
+  text-decoration: underline;
+}
+
+.todo-clear-text {
+  font-size: 12px;
+}

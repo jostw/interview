@@ -1,4 +1,5 @@
-import { ADD_TODO, REMOVE_TODO, TOGGLE_TODO, EDIT_TODO, UPDATE_TODO } from '../actions';
+import { ADD_TODO, REMOVE_TODO, TOGGLE_TODO, EDIT_TODO, UPDATE_TODO,
+         CLEAR_COMPLETED_TODO } from '../actions';
 
 let todoId = 0;
 
@@ -58,6 +59,8 @@ function todos(state = [], action) {
           isEditing: false
         };
       });
+    case CLEAR_COMPLETED_TODO:
+      return state.filter(todo => !todo.isCompleted);
     default:
       return state;
   }

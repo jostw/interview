@@ -6,6 +6,7 @@ import * as actions from '../actions';
 import TodoForm from '../components/TodoForm';
 import TodoFilter from '../components/TodoFilter';
 import TodoList from '../components/TodoList';
+import TodoClear from '../components/TodoClear';
 
 class App extends Component {
   constructor(props) {
@@ -16,6 +17,7 @@ class App extends Component {
     this.toggleTodo = this.toggleTodo.bind(this);
     this.editTodo = this.editTodo.bind(this);
     this.updateTodo = this.updateTodo.bind(this);
+    this.clearCompletedTodo = this.clearCompletedTodo.bind(this);
 
     this.setFilterAll = this.setFilterAll.bind(this);
     this.setFilterActive = this.setFilterActive.bind(this);
@@ -23,9 +25,10 @@ class App extends Component {
   }
 
   render() {
-    const { todos, filter } = this.props;
+    const { todos, filter, hasCompleted } = this.props;
 
     let todoFilter = null;
+    let todoClear = null;
 
     if (todos.length > 0 || filter.filterType !== actions.FILTER_TYPE_ALL) {
       todoFilter = (
@@ -33,6 +36,12 @@ class App extends Component {
                     setFilterAll={ this.setFilterAll }
                     setFilterActive={ this.setFilterActive }
                     setFilterCompleted={ this.setFilterCompleted } />
+      );
+    }
+
+    if (hasCompleted) {
+      todoClear = (
+        <TodoClear clearCompletedTodo={ this.clearCompletedTodo } />
       );
     }
 
@@ -45,6 +54,7 @@ class App extends Component {
                   toggleTodo={ this.toggleTodo }
                   editTodo={ this.editTodo }
                   updateTodo={ this.updateTodo } />
+        { todoClear }
       </div>
     );
   }
@@ -75,6 +85,12 @@ class App extends Component {
 
   updateTodo(id, text) {
     this.props.actions.updateTodo(id, text);
+  }
+
+  clearCompletedTodo(e) {
+    e.preventDefault();
+
+    this.props.actions.clearCompletedTodo();
   }
 
   setFilterAll(e) {
@@ -110,7 +126,8 @@ function filterTodos(todos, filter) {
 function mapStateToProps(state) {
   return {
     todos: filterTodos(state.todos, state.filter),
-    filter: state.filter
+    filter: state.filter,
+    hasCompleted: state.todos.some(todo => todo.isCompleted)
   };
 }
 
