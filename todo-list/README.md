@@ -10,10 +10,6 @@ This project includes the following tools.
 
 ## Getting Started
 
-```
-cd todo-list/
-```
-
 - Make sure [Node.js](https://nodejs.org/) is installed properly.
 - Recommend using [Yarn](https://github.com/yarnpkg/yarn).
 - Use ` yarn ` for installing all packages.
